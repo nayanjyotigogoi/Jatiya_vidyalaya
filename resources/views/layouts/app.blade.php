@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mukta+Mahee:wght@200;300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+
     <link rel="stylesheet" href="css/fontawesome.css">
 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
@@ -28,11 +29,13 @@
     <!-- Styles -->
     <!-- <link rel="stylesheet" href="{{asset('css/style.css')}}"> -->
     <!-- added by nayan on 19-03-2025 -->
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/index.css')}}">
     <link rel="stylesheet" href="{{asset('css/about-us.css')}}">
     <link rel="stylesheet" href="{{asset('css/teacher.css')}}">
     <link rel="stylesheet" href="{{asset('css/contact-us.css')}}">
     <link rel="stylesheet" href="{{asset('css/academics.css')}}">
+    <link rel="stylesheet" href="{{asset('css/student_list.css')}}">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -71,7 +74,14 @@
                     <li><a href="/" class="nav-link">Home</a></li>
                     <li><a href="/about-us" class="nav-link">About Us</a></li>
                     <li><a href="/teacher" class="nav-link">Teachers</a></li>
-                    <li><a href="/academics" class="nav-link">Academics</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link">Academics ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/academics" class="dropdown-item">Academic Page</a></li>
+                            <li><a href="/students-list" class="dropdown-item">Student List</a></li>
+                        </ul>
+                    </li>
+
                     <!-- <li><a href="#" class="nav-link">Blog</a></li> -->
                     <li><a href="/contact-us" class="nav-link">Contact</a></li>
                 </ul>
@@ -166,12 +176,14 @@
         </ul>
     </div>
     <div class="overlay"></div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/about-us.js"></script>
     <script src="js/contact-us.js"></script>
     <script src="js/academics.js"></script>
+    <script src="js/student_list.js"></script>
     <script src="js/teacher.js"></script>
 
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
@@ -203,28 +215,28 @@
             });
         });
 
-        document.addEventListener("DOMContentLoaded", function () {
-            const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
-            const mobileMenu = document.querySelector(".mobile-menu");
-            const overlay = document.querySelector(".overlay");
-            const closeBtn = document.querySelector(".mobile-menu-close");
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const overlay = document.querySelector('.overlay');
+            const mobileMenuClose = document.querySelector('.mobile-menu-close');
 
-            // Open Menu
-            mobileMenuBtn.addEventListener("click", function () {
-                mobileMenu.classList.add("active");
-                overlay.classList.add("active");
+            // Open menu
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('active');
+                overlay.classList.add('active');
             });
 
-            // Close Menu
-            closeBtn.addEventListener("click", function () {
-                mobileMenu.classList.remove("active");
-                overlay.classList.remove("active");
+            // Close menu
+            mobileMenuClose.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
             });
 
-            // Close when clicking outside the menu
-            overlay.addEventListener("click", function () {
-                mobileMenu.classList.remove("active");
-                overlay.classList.remove("active");
+            // Close when clicking on overlay
+            overlay.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+                overlay.classList.remove('active');
             });
         });
 

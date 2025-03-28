@@ -5,22 +5,26 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use Illuminate\Http\Request;
 
-class StudentController extends Controller {
-    
+class StudentController extends Controller
+{
+
     // Show all students
-    public function index() {
+    public function index()
+    {
         $students = Student::all();
         return view('Admin.Students.view_student', compact('students'));
     }
-    
+
 
     // Show create form
-    public function create() {
+    public function create()
+    {
         return view('Admin.Students.add_student');
     }
 
     // Store new student
-    public function store(Request $request) {
+    public function store(Request $request)
+    {
         $request->validate([
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
@@ -38,26 +42,29 @@ class StudentController extends Controller {
         Student::create($request->all());
         return redirect()->route('students.index')->with('success', 'Student added successfully!');
 
-  
+
     }
 
     // Show single student details
-    public function show(Student $student) {
+    public function show(Student $student)
+    {
         return view('students.show', compact('student'));
     }
 
     // Show edit form
-    public function edit($id) {
+    public function edit($id)
+    {
         $student = Student::findOrFail($id); // Ensure student exists
         return view('Admin.Students.edit_student', compact('student'));
     }
-    
-    
+
+
 
     // Update student record
-    public function update(Request $request, $id) {
+    public function update(Request $request, $id)
+    {
         $student = Student::findOrFail($id); // Retrieve student by ID
-    
+
         $request->validate([
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
@@ -71,16 +78,42 @@ class StudentController extends Controller {
             'marks' => 'nullable|string',
             'grade' => 'nullable|string|max:5',
         ]);
-    
+
         $student->update($request->all());
-    
+
         return redirect()->route('students.index')->with('success', 'Student updated successfully!');
     }
-    
+
 
     // Delete student
-    public function destroy(Student $student) {
+    public function destroy(Student $student)
+    {
         $student->delete();
         return redirect()->route('students.index')->with('success', 'Student deleted successfully');
     }
+
+    public function studentGrades()
+    {
+        $students = Student::all();
+
+        // First Division: 300 to 399
+        $firstDivisionStudents = $students->filter(function ($student) {
+            return $student->marks >= 300 && $student->marks <= 399;
+        });
+
+        // Distinction: 400 to 509
+        $distinctionStudents = $students->filter(function ($student) {
+            return $student->marks >= 400 && $student->marks <= 509;
+        });
+
+        // Star: 510 to 600
+        $starStudents = $students->filter(function ($student) {
+            return $student->marks >= 510 && $student->marks <= 600;
+        });
+
+
+        return view('Academics.Student_list', compact('starStudents', 'distinctionStudents', 'firstDivisionStudents', 'students'));
+    }
+
+
 }

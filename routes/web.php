@@ -11,6 +11,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ReviewController;
 
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,6 +39,10 @@ Route::post('/write-review', [ReviewController::class, 'store'])->name('reviews.
 Route::get('/about-us', [HomeController::class, 'getAbout'])->name('about');
 
 Route::get('/academics', [HomeController::class, 'getAcademics'])->name('academics');
+
+Route::get('/students-list', [StudentController::class, 'studentGrades'])->name('students.grades');
+
+
 Route::get('/teacher', [HomeController::class, 'getteacher'])->name('teacher');
 
 Route::get('/contact-us', [HomeController::class, 'getContact'])->name('contact');
