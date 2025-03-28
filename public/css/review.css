@@ -1,0 +1,48 @@
+.review-form-section {
+    background-color: #f9f9f9;
+    border-top: 1px solid #ddd;
+}
+
+.review-form {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.review-form label {
+    font-weight: 600;
+    color: #333;
+}
+
+.review-form input, 
+.review-form textarea, 
+.review-form select {
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    transition: border-color 0.3s;
+}
+
+.review-form input:focus, 
+.review-form textarea:focus, 
+.review-form select:focus {
+    border-color: #4CAF50;
+    box-shadow: none;
+}
+
+.btn-submit-review {
+    background: linear-gradient(135deg, #4CAF50, #45A049);
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-submit-review:hover {
+    background: linear-gradient(135deg, #45A049, #3d8b40);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0,0,0,0.1);
+}

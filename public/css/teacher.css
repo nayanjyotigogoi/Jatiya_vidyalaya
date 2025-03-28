@@ -1,0 +1,227 @@
+/* Hero Section */
+.hero {
+    background-color: #f0f2f5;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero h1 {
+    font-size: 28px;
+    color: #1e293b;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumb {
+    color: #666;
+    position: relative;
+    z-index: 2;
+}
+
+.breadcrumb a {
+    color: #6C5CE7;
+}
+
+/* Background Shapes */
+.shape {
+    position: absolute;
+    z-index: 1;
+}
+
+.shape-dots {
+    top: 20%;
+    left: 5%;
+    width: 80px;
+    height: 80px;
+    background-image: radial-gradient(#ff6b6b 2px, transparent 2px);
+    background-size: 15px 15px;
+}
+
+.shape-wave {
+    left: 20%;
+    bottom: 20%;
+    width: 100px;
+    height: 20px;
+    background: repeating-linear-gradient(
+        to right,
+        #6C5CE7,
+        #6C5CE7 5px,
+        transparent 5px,
+        transparent 10px
+    );
+    border-radius: 10px;
+}
+
+.shape-star {
+    top: 20%;
+    right: 10%;
+    width: 50px;
+    height: 50px;
+    color: #9c88ff;
+}
+
+.shape-star::before {
+    content: "★";
+    font-size: 50px;
+    position: absolute;
+}
+
+.shape-circle {
+    bottom: 20%;
+    right: 20%;
+    width: 80px;
+    height: 80px;
+    border: 3px solid #ff6b6b;
+    border-radius: 50%;
+}
+
+/* Instructors Section */
+.teacher-instructors {
+    padding: 80px 0;
+}
+
+.section-tag {
+    display: inline-block;
+    background-color: #e9e4f8;
+    color: #6C5CE7;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+.teacher-instructors h2 {
+    font-size: 36px;
+    color: #1e293b;
+    margin-bottom: 40px;
+}
+
+.teacher-instructor-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 30px;
+}
+
+.teacher-instructor-card {
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.teacher-instructor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.teacher-instructor-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+}
+
+.teacher-instructor-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.teacher-instructor-card:hover .teacher-instructor-image img {
+    transform: scale(1.05);
+}
+
+.teacher-share-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #ff6b6b;
+    color: white;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.teacher-share-icon:hover {
+    background-color: #6C5CE7;
+}
+
+.teacher-instructor-info {
+    padding: 20px;
+}
+
+.teacher-instructor-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: #1e293b;
+}
+
+.teacher-instructor-info p {
+    color: #6C5CE7;
+    font-size: 14px;
+}
+
+
+
+.teacher-highlight {
+    color: #ff6b6b;
+}
+
+/* Responsive Hero Section */
+@media (max-width: 768px) {
+    .hero {
+        padding: 50px 15px;
+    }
+
+    .hero h1 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 20px;
+    }
+}
+
+/* Responsive Instructor Grid */
+@media (max-width: 1024px) {
+    .teacher-instructor-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .teacher-instructor-grid {
+        grid-template-columns: repeat(1, 1fr);
+        gap: 15px;
+    }
+
+    .teacher-instructors h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .teacher-instructors h2 {
+        font-size: 24px;
+    }
+
+    .teacher-instructor-info h3 {
+        font-size: 16px;
+    }
+
+    .teacher-instructor-info p {
+        font-size: 12px;
+    }
+}
